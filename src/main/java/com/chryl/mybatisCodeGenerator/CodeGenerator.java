@@ -17,7 +17,7 @@ import java.util.Scanner;
 
 /**
  * mp代码生成器官方Api文档:https://mp.baomidou.com/config/
- * 可根据具体需求配置代码生成器相关属性
+ * 可根据具体需求配置代码生成器相关属性,生成表
  * <p>
  * Created by Chryl on 2019/10/15.
  */

@@ -1,12 +1,15 @@
 package com.chryl.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.chryl.dto.User;
 import com.chryl.mapper.UserMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -38,8 +41,20 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         baseMapper.updateById(user);
     }
 
-//    public IPage<User> selectPage(String page, String rows) {
-//
-//    }
+    public IPage<Map<String, Object>> selectPage(long curr, long limit) {
+        QueryWrapper<User> wrapper = new QueryWrapper();
+        wrapper.like("user_name", "a")//like 条件  在Compare类中设置
+//                .eq("user_name", "nac")
+                .between("user_date", "2019-10-07", "2019-11-07")
+//                .lt("age", 40);
+        ;
+
+        Page<User> page = new Page<>(curr, limit);
+        //po
+        //IPage<User> userIPage = userMapper.selectPage(page, wrapper);
+        //map
+        IPage<Map<String, Object>> mapIPage = baseMapper.selectMapsPage(page, wrapper);
+        return mapIPage;
+    }
 
 }

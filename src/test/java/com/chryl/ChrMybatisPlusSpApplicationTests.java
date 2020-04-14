@@ -18,7 +18,7 @@ public class ChrMybatisPlusSpApplicationTests {
     public void contextLoads() {
 
         System.out.println(
-                userService.selectMaps()
+                userService.selectPage(1, 10)
 
         );
     }
