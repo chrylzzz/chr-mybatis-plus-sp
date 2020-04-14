@@ -4,7 +4,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.chryl.dto.User;
 
 /**
- * 接口service也需要继承接口类,泛型为Po
+ * 接口service也需要继承接口类,泛型为PoJo
+ * 接口service也需要继承接口类,泛型为PoJo
  * <p>
  * Created by Chryl on 2019/10/15.
  */

@@ -1,7 +1,9 @@
 package com.chryl;
 
+import com.chryl.service.UserServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -9,8 +11,16 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class ChrMybatisPlusSpApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+    @Autowired
+    private UserServiceImpl userService;
+
+    @Test
+    public void contextLoads() {
+
+        System.out.println(
+                userService.selectMaps()
+
+        );
+    }
 
 }
