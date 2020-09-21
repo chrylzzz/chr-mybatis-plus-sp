@@ -1,14 +1,17 @@
 package com.chryl.config;
 
-import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * Created by Chr.yl on 2020/4/14.
  *
  * @author Chr.yl
  */
+@Configuration
+@MapperScan({"com.chryl.**.mapper"})
 public class MyBatisPlusConfig {
     //分页详解
     /**
@@ -34,7 +37,7 @@ public class MyBatisPlusConfig {
      */
     @Bean
     public PaginationInterceptor paginationInterceptor() {
+        // paginationInterceptor.setLimit(你的最大单页限制数量，默认 500 条，小于 0 如 -1 不受限制);
         return new PaginationInterceptor();
-
     }
 }

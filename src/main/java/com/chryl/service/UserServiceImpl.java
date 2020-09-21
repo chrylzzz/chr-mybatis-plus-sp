@@ -41,6 +41,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         baseMapper.updateById(user);
     }
 
+    //分页查询
     public IPage<Map<String, Object>> selectPage(long curr, long limit) {
         QueryWrapper<User> wrapper = new QueryWrapper();
         wrapper.like("user_name", "a")//like 条件  在Compare类中设置
