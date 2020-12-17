@@ -4,7 +4,9 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 /**
@@ -18,12 +20,19 @@ public class User implements Serializable {
     private String id;
 
     @TableField(value = "user_name")
+    @NotBlank(message="用户名不能为空")
     private String userName;
 
     @TableField(value = "user_password")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String userPassowrd;
 
     public User() {
+    }
+
+    public User(@NotBlank(message = "用户名不能为空") String userName, String userPassowrd) {
+        this.userName = userName;
+        this.userPassowrd = userPassowrd;
     }
 
     public User(String id, String userName, String userPassowrd) {
