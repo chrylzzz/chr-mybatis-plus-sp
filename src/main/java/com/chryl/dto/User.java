@@ -24,7 +24,7 @@ public class User implements Serializable {
     private String userName;
 
     @TableField(value = "user_password")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)//只允许修改,不允许读(展示)
     private String userPassowrd;
 
     public User() {
