@@ -27,6 +27,9 @@ public class User implements Serializable {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)//只允许修改,不允许读(展示)
     private String userPassowrd;
 
+    @TableField(value = "is_admin")
+    private Boolean isAdmin;
+
     public User() {
     }
 
@@ -69,12 +72,21 @@ public class User implements Serializable {
         this.userPassowrd = userPassowrd;
     }
 
+    public Boolean getAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        isAdmin = admin;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id='" + id + '\'' +
                 ", userName='" + userName + '\'' +
                 ", userPassowrd='" + userPassowrd + '\'' +
+                ", isAdmin=" + isAdmin +
                 '}';
     }
 }
