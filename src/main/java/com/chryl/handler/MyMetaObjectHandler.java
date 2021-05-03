@@ -27,6 +27,9 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         this.setFieldValByName("orderCreateTime", LocalDateTime.now(), metaObject);
         this.setFieldValByName("orderUpdateTime", LocalDateTime.now(), metaObject);
 
+        //乐观锁
+        this.setFieldValByName("version", 1, metaObject);
+
     }
 
     //使用MP 修改 操作时执行

@@ -1,10 +1,8 @@
 package com.chryl.config;
 
-import com.baomidou.mybatisplus.core.injector.ISqlInjector;
 import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,7 +12,8 @@ import org.springframework.context.annotation.Configuration;
  * @author Chr.yl
  */
 @Configuration
-@MapperScan({"com.chryl.**.mapper"})
+//@MapperScan({"com.chryl.**.mapper"})
+@MapperScan("com.chryl.mapper")
 public class MyBatisPlusConfig {
     //分页详解
     /**

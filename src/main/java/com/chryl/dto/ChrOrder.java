@@ -1,9 +1,6 @@
 package com.chryl.dto;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import lombok.ToString;
 
@@ -44,8 +41,12 @@ public class ChrOrder implements Serializable {
     @TableField(value = "order_create_time", fill = FieldFill.INSERT)
     private LocalDateTime orderCreateTime;
 
-    @TableField(value = "order_update_time",fill = FieldFill.INSERT_UPDATE)
+    @TableField(value = "order_update_time", fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime orderUpdateTime;
+
+    @Version
+    @TableField(value = "version", fill = FieldFill.INSERT)
+    private Integer version;//乐观锁版本号
 
 
 }

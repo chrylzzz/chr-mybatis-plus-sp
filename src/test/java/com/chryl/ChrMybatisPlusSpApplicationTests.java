@@ -58,10 +58,11 @@ public class ChrMybatisPlusSpApplicationTests {
     public void saveOrder() {
         ChrOrder chrOrder = new ChrOrder();
         //id自动生成策略
-        chrOrder.setOrderName("我的订单1");
+        chrOrder.setOrderName("测试乐观锁1");
         chrOrderMapper.insert(chrOrder);
     }
 
+    //updateOrderById
     @Test
     public void updateOrderById() {
         ChrOrder chrOrder = new ChrOrder();
@@ -71,4 +72,13 @@ public class ChrMybatisPlusSpApplicationTests {
         chrOrderMapper.updateById(chrOrder);
     }
 
+
+    //测试乐观锁
+    @Test
+    public void updateOptimisticLocker() {
+        ChrOrder order = chrOrderMapper.selectById(1389219298249187330L);
+        order.setOrderName("测试乐观锁2");
+        chrOrderMapper.updateById(order);
+        //version会改变
+    }
 }
