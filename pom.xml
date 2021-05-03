@@ -54,16 +54,19 @@
             </exclusions>
         </dependency>
         <!--mybatis-plus 相关依赖-->
+        <!-- 注意这里的版本需要一致:java.lang.NoSuchMethodError: com.baomidou.mybatisplus.core.toolkit.StringUtils.isNotBlank(Ljava/lang/CharSequence;)Z -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.2.0</version>
+            <!--<version>3.4.2</version>-->
         </dependency>
         <!--mybatis-plus代码生成器 相关依赖-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
             <version>3.2.0</version>
+            <!--<version>3.4.1</version>-->
         </dependency>
 
         <dependency>

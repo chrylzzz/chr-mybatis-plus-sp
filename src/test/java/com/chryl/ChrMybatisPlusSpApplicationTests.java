@@ -66,7 +66,7 @@ public class ChrMybatisPlusSpApplicationTests {
     public void updateOrderById() {
         ChrOrder chrOrder = new ChrOrder();
         //id自动生成策略
-        chrOrder.setOrderId(2L);
+        chrOrder.setOrderId(1389212424007241730L);
         chrOrder.setOrderName("我的订单2");
         chrOrderMapper.updateById(chrOrder);
     }
