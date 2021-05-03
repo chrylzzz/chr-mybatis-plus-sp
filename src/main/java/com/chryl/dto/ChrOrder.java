@@ -3,8 +3,10 @@ package com.chryl.dto;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import lombok.ToString;
+import org.apache.ibatis.type.JdbcType;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
@@ -31,6 +33,9 @@ public class ChrOrder implements Serializable {
     private Long orderId;
 
     private String orderName;
+
+    @TableField(value = "order_price", jdbcType = JdbcType.DECIMAL)
+    private BigDecimal orderPrice;
 
     /**
      * MP自动填充:创建时间和修改时间
