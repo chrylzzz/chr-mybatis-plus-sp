@@ -63,6 +63,7 @@ public class ChrMybatisPlusSpApplicationTests {
         ChrOrder chrOrder = new ChrOrder();
         //id自动生成策略
         chrOrder.setOrderName("测试乐观锁1");
+        chrOrder.setOrderPrice(new BigDecimal(23.22).setScale(2, RoundingMode.HALF_UP));
         chrOrderMapper.insert(chrOrder);
     }
 
@@ -99,7 +100,7 @@ public class ChrMybatisPlusSpApplicationTests {
         Map<String, Object> map = new HashMap<>();
         //注意这里的key为db的字段列名字
         map.put("order_name", "我的订单2");
-//        map.put("order_price", new BigDecimal(23.22).setScale(2, RoundingMode.HALF_UP));
+        map.put("order_price", new BigDecimal(23.22).setScale(2, RoundingMode.HALF_UP));
         List<ChrOrder> chrOrderList = chrOrderMapper.selectByMap(map);
         System.out.println(chrOrderList);
     }
@@ -118,5 +119,41 @@ public class ChrMybatisPlusSpApplicationTests {
         System.out.println(page.hasPrevious());//是否有上页
         System.out.println(page.hasNext());//是否有下页
     }
+
+    //物理删除
+    @Test
+    public void deleteById() {
+        chrOrderMapper.deleteById(3L);//id删除
+        chrOrderMapper.deleteBatchIds(Arrays.asList(13131L, 23131L, 213439L));//批量删除
+
+        Map<String, Object> map = new HashMap<>();
+        //注意这里的key为db的字段列名字
+        map.put("order_name", "我的订单2");
+        map.put("order_price", new BigDecimal(23.22).setScale(2, RoundingMode.HALF_UP));
+        chrOrderMapper.deleteByMap(map);//条件删除
+    }
+
+    //逻辑删除
+    @Test
+    public void delete() {
+        chrOrderMapper.deleteById(1389374356148363265L);//id删除
+        chrOrderMapper.deleteBatchIds(Arrays.asList(1389374702044250113L));//批量删除
+//
+//        Map<String, Object> map = new HashMap<>();
+//        //注意这里的key为db的字段列名字
+//        map.put("order_name", "我的订单2");
+//        map.put("order_price", new BigDecimal(23.22).setScale(2, RoundingMode.HALF_UP));
+//        chrOrderMapper.deleteByMap(map);//条件删除
+        List<ChrOrder> chrOrders = chrOrderMapper.selectBatchIds(Arrays.asList(1389374356148363265L, 1389374702044250113L));
+        System.out.println(chrOrders);
+    }
+
+    //自实现查询 myQueryById
+    @Test
+    public void myQueryById(){
+        ChrOrder chrOrder = chrOrderMapper.myQueryById(1389374702044250113L);
+        System.out.println(chrOrder);
+    }
+
 
 }

@@ -53,5 +53,8 @@ public class ChrOrder implements Serializable {
     @TableField(value = "version", fill = FieldFill.INSERT)
     private Integer version;//乐观锁版本号
 
+    @TableLogic//逻辑删除注解
+    private Integer deleted;//逻辑删除状态,0代表不删,1代表删除
+
 
 }

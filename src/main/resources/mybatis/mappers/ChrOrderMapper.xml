@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chryl.mapper.ChrOrderMapper">
+
+
+    <resultMap id="chr_order_map" type="com.chryl.dto.ChrOrder" autoMapping="true">
+        <id column="order_id" property="orderId" jdbcType="BIGINT"/>
+        <result column="order_name" property="orderName" jdbcType="VARCHAR"/>
+        <!--<result column="order_create_time" property="orderCreateTime" jdbcType="INTEGER"/>-->
+        <!--<result column="order_update_time" property="orderUpdateTime" jdbcType="VARCHAR"/>-->
+        <!--<result column="version" property="version" jdbcType="INTEGER"/>-->
+        <!--<result column="order_price" property="orderPrice" jdbcType="DECIMAL"/>-->
+        <!--<result column="deleted" property="deleted" jdbcType="INTEGER"/>-->
+    </resultMap>
+
+    <select id="myQueryById" resultMap="chr_order_map" parameterType="long">
+      SELECT  * FROM chr_order WHERE order_id = #{orderId}
+    </select>
+
+
+</mapper>

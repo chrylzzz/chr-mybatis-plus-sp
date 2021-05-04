@@ -7,6 +7,9 @@ spring:
     password: chryl
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
+    # 环境
+  profiles:
+    active: dev
 
 
 # 打印sql
@@ -15,8 +18,12 @@ spring:
 
 # mybaits-plus配置
 mybatis-plus:
-  # MyBatis Mapper所对应的XML文件位置
-  mapper-locations: classpath*:/mappers/*Mapper.xml
+  # MyBatis Mapper所对应的XML文件位置 classpath*:/mybatis.mappers/*Mapper.xml
+  mapper-locations:
+    - classpath:dao/*.xml
+    - classpath:mappers/*.xml
+    - classpath:mybatis/mappers/*.xml
+    - classpath*:com/**/mapper/*.xml
   global-config:
     # 关闭MP3.0自带的banner
     banner: false
@@ -27,6 +34,8 @@ mybatis-plus:
       field-strategy: NOT_NULL
       # 默认数据库表下划线命名
       table-underline: true
+      logic-not-delete-value: 0 # 0标识逻辑删除
+      logic-delete-value: 1 # 1标识逻辑删除
   configuration:
     #mybatis-plus 控制台打印执行SQL语句
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

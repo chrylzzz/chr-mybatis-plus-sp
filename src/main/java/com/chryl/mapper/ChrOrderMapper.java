@@ -9,4 +9,5 @@ import com.chryl.dto.ChrOrder;
  * @author Chr.yl
  */
 public interface ChrOrderMapper extends BaseMapper<ChrOrder> {
+    ChrOrder myQueryById(Long orderId);
 }
