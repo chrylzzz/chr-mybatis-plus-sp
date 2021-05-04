@@ -57,8 +57,8 @@ public class MPCodeGenerator {
         /**
          * 这里不是绝对路径,现在使用绝对路径
          */
-        projectPath = "/Users/chryl/develop/work_Spaces/idea_Project/chr-mybatis-plus-sp";
-        gc.setOutputDir(projectPath + "/src/main/java");
+//        gc.setOutputDir(projectPath + "/src/main/java");
+        gc.setOutputDir("/Users/chryl/develop/work_Spaces/idea_Project/sp-mp-demo" + "/src/main/java");
 
         gc.setAuthor("chryl");
         gc.setOpen(false);//是否打开文件夹
