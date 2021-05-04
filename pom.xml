@@ -71,6 +71,13 @@
             <!--<version>3.4.1</version>-->
         </dependency>
 
+        <!-- MP 模板生成 -->
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity-engine-core</artifactId>
+            <version>2.2</version>
+        </dependency>
+
         <!--<dependency>-->
             <!--<groupId>com.alibaba</groupId>-->
             <!--<artifactId>druid</artifactId>-->
@@ -92,6 +99,19 @@
             <artifactId>lombok</artifactId>
             <!--依赖不传递-->
             <optional>true</optional>
+        </dependency>
+
+        <!-- swagger2 -->
+        <!--Swagger-UI API文档生产工具-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.7.0</version>
         </dependency>
     </dependencies>
 

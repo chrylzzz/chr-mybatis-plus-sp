@@ -117,6 +117,9 @@ public class ChrOrderService {
     public void mpUpdate() {
         ChrOrder chrOrder = new ChrOrder();
         UpdateWrapper<ChrOrder> updateWrapper = new UpdateWrapper<>();
+        /**
+         * set、setSql:只有在 UpdateWrapper 才可以使用
+         */
         updateWrapper
                 .like("order_name", "测试")
                 .set("order_name", "老李头")//除了可以查询还可以使用set设置修改的字段

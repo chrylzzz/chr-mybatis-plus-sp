@@ -23,7 +23,9 @@ mybatis-plus:
     - classpath:dao/*.xml
     - classpath:mappers/*.xml
     - classpath:mybatis/mappers/*.xml
+    - classpath:mybatis/xml/*.xml
     - classpath*:com/**/mapper/*.xml
+    - classpath*:com/**/mapper/xml/*.xml
   global-config:
     # 关闭MP3.0自带的banner
     banner: false
