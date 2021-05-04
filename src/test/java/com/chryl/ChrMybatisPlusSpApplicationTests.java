@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.chryl.dto.ChrOrder;
 import com.chryl.dto.User;
 import com.chryl.mapper.ChrOrderMapper;
+import com.chryl.service.ChrOrderService;
 import com.chryl.service.UserServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -150,10 +151,35 @@ public class ChrMybatisPlusSpApplicationTests {
 
     //自实现查询 myQueryById
     @Test
-    public void myQueryById(){
+    public void myQueryById() {
         ChrOrder chrOrder = chrOrderMapper.myQueryById(1389374702044250113L);
         System.out.println(chrOrder);
     }
 
+
+    @Autowired
+    private ChrOrderService chrOrderService;
+
+    //复杂查询
+    @Test
+    public void mpQuery() {
+        ChrOrder chrOrder = new ChrOrder();
+//        chrOrder.setOrderPrice(new BigDecimal(2));
+        chrOrder.setOrderName("测试乐观锁2");
+        List<ChrOrder> chrOrderList = chrOrderService.mpQueryList(chrOrder);
+        System.out.println(chrOrderList);
+    }
+
+    //查询指定的列
+    @Test
+    public void mpQueryColumn() {
+        List<ChrOrder> chrOrders = chrOrderService.selectListColumn();
+        System.out.println(chrOrders);
+    }
+
+    @Test
+    public void mpUpdae() {
+        chrOrderService.mpUpdate();
+    }
 
 }
