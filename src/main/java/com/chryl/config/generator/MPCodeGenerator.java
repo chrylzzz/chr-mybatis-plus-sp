@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * 需要更改的地方:
+ * 需要更改的地方:修改2,3,4,5步
  * 基本配置:GlobalConfig
  * 数据库配置:DataSourceConfig
  * 生成路径配置:PackageConfig
